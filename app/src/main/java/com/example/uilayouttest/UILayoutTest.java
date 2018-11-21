@@ -19,33 +19,39 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("点击1");
+                show.setText("%");
             }
         });
         bn=(Button)findViewById(R.id.button2);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("点击2");
+                show.setText("点击ce");
             }
         });
         bn=(Button)findViewById(R.id.button3);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("点击3");
+                show.append("c");
+                //show.setText("点击3");
             }
         });bn=(Button)findViewById(R.id.button4);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("点击4");
+                String a=show.getText().toString();
+                a=a.substring(0,a.length()-1);
+                show.setText(a);
+                //show.setText(show.getText());
+                //show.setText("点击del");
             }
         });bn=(Button)findViewById(R.id.button5);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("点击1");
+                show.append("/");
+                //show.setText("/");
             }
         });bn=(Button)findViewById(R.id.button6);
         bn.setOnClickListener(new View.OnClickListener() {
@@ -57,85 +63,96 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("点击1");
+                show.append("7");
+                ///show.setText("7");
             }
         });bn=(Button)findViewById(R.id.button8);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("点击1");
+                show.append("8");
+                //show.setText("8");
             }
         });bn=(Button)findViewById(R.id.button9);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("点击1");
+                show.append("9");
+                //show.setText("9");
             }
         });bn=(Button)findViewById(R.id.button10);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("点击1");
+                show.append("*");
+                //show.setText("*");
             }
         });bn=(Button)findViewById(R.id.button11);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.setText("4");
             }
         });bn=(Button)findViewById(R.id.button12);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.append("4");
+                //show.setText("4");
             }
         });bn=(Button)findViewById(R.id.button13);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.append("5");
+                //show.setText("5");
             }
         });bn=(Button)findViewById(R.id.button14);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.append("6");
+                //show.setText("6");
             }
         });bn=(Button)findViewById(R.id.button15);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.append("-");
+                //show.setText("-");
             }
         });bn=(Button)findViewById(R.id.button16);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.setText("1");
             }
         });bn=(Button)findViewById(R.id.button17);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.append("1");
             }
         });bn=(Button)findViewById(R.id.button18);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.append("2");
+                //show.setText("2");
             }
         });bn=(Button)findViewById(R.id.button19);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.append("3");
+                //show.setText("3");
             }
         });bn=(Button)findViewById(R.id.button20);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.append("+");
+                //show.setText("+");
             }
         });bn=(Button)findViewById(R.id.button21);
         bn.setOnClickListener(new View.OnClickListener() {
@@ -147,25 +164,28 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.setText("0");
             }
         });bn=(Button)findViewById(R.id.button23);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.append("0");
+                //show.setText("0");
             }
         });bn=(Button)findViewById(R.id.button24);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.append(".");
+                //show.setText(".");
             }
         });bn=(Button)findViewById(R.id.button25);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                show.append("=");
+                //show.setText("=");
             }
         });
 
