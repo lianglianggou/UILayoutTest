@@ -3,16 +3,33 @@
 android:layout_width="match_parent"
 android:layout_height="match_parent"
     >
-<TableRow>
-    <TextView
-        android:id="@+id/text1"
+
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="50dp"
-        />
-</TableRow>
-<TableRow>
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="50dp"
+            />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="50dp"
+            />
+
+    </TableRow>
+
+    <TableRow>
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"

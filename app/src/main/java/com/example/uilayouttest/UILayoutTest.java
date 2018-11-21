@@ -7,14 +7,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Stack;
+
 public class UILayoutTest extends AppCompatActivity {
-    TextView show;
+    TextView show,show1;
     Button bn;
+    Stack<Double>  OPND = new Stack<Double>();
+    Stack<Character> OPTR = new Stack<Character>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uilayout_test);
         show=(TextView)findViewById(R.id.text1);
+        show1=(TextView)findViewById(R.id.text2);
         bn=(Button)findViewById(R.id.button1);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -185,31 +190,62 @@ public class UILayoutTest extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 show.append("=");
-                //show.setText("=");
+                String a=show.getText().toString();
+                double result=compute(a);
+                String s=String.valueOf(result);
+                show1.setText(s);
             }
         });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
+    public double compute(String str){
 
+        return 0;
+    }
+    public char Precede(char a, char b) {
+        switch (a) {
+            case '+':
+                if (b == '+' || b == '-' || b == ')' || b == '=')
+                    return '>';
+                else
+                    return '<';
+            case '-':
+                if (b == '+' || b == '-' || b == ')' || b == '=')
+                    return '>';
+                else
+                    return '<';
+            case '*':
+                if (b == '(')
+                    return '<';
+                else
+                    return '>';
+            case '/':
+                if (b == '(')
+                    return '<';
+                else
+                    return '>';
+            case '(':
+                if (b == ')')
+                    return '=';
+                else
+                    return '<';
+            case ')':
+                return '>';
+            case '=':
+                if (b == '=')
+                    return '=';
+                else
+                    return '<';
+        }
+        return 'o';
+    }
+    public double Operate(double a, char ch, double b) {
+        switch (ch) {
+            case '+':return a + b;
+            case '-':return a - b;
+            case '*':return a * b;
+            case '/':return a / b;
+        }
+        return 0;
+    }
 }
