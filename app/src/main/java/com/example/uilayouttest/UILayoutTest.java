@@ -2,11 +2,14 @@ package com.example.uilayouttest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 import static java.lang.Math.pow;
@@ -16,12 +19,15 @@ public class UILayoutTest extends AppCompatActivity {
     Button bn;
     Stack<Double>  OPND = new Stack<Double>();
     Stack<Character> OPTR = new Stack<Character>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uilayout_test);
         show=(TextView)findViewById(R.id.text1);
         show1=(TextView)findViewById(R.id.text2);
+        show.setMovementMethod(ScrollingMovementMethod.getInstance());
+        show1.setMovementMethod(ScrollingMovementMethod.getInstance());
         bn=(Button)findViewById(R.id.button1);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +39,9 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("点击ce");
+                show.setText("");
+                show1.setText("");
+                //show.setText("点击ce");
             }
         });
         bn=(Button)findViewById(R.id.button3);
@@ -191,11 +199,14 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 show.append("=");
                 String a=show.getText().toString();
                 double result=compute(a);
                 String s=String.valueOf(result);
-                show1.setText(s);
+                show1.setText("");
+                show1.setText(show.getText()+s);
+                show.setText(s);
             }
         });
 
@@ -226,6 +237,7 @@ public class UILayoutTest extends AppCompatActivity {
 
                 }
                 OPND.push(d);
+
                 d = 0;
                 f = 0;
                 z = 0;
@@ -234,9 +246,12 @@ public class UILayoutTest extends AppCompatActivity {
                 switch (Precede(OPTR.peek(), c)) {
                 case '<':OPTR.push(c); c=str.charAt(count++); break;
                 case '=':x=OPTR.pop();c=str.charAt(count++); break;
-                case '>':x=OPTR.pop();a=OPND.pop();b=OPND.pop();OPND.push(Operate(a,x,b));OPTR.push(c);break;
+                //case '>':x=OPTR.pop();QUEUE.add((double)x);break;
+                    case '>':x=OPTR.pop();a=OPND.pop();b=OPND.pop();OPND.push(Operate(b,x,a));break;
             }
+
         }
+
         double result=OPND.peek();
         OPND.clear();
         OPTR.clear();
