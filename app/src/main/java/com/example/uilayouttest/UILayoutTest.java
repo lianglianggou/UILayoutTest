@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import java.util.Stack;
 
+import static java.lang.Math.pow;
+
 public class UILayoutTest extends AppCompatActivity {
     TextView show,show1;
     Button bn;
@@ -199,8 +201,46 @@ public class UILayoutTest extends AppCompatActivity {
 
     }
     public double compute(String str){
+        char x;
+        double a, b, f = 0, z = 0, d = 0;
+        double e = 0;
+        OPTR.push('=');
+        int count=0;
+        char c=str.charAt(count++);
+        while (c != '=' || OPTR.peek() != '=') {
+            if (c != '(' && c != '+' && c != '-' && c != '*' && c != '/' && c != ')'&&c != '=') {
+                while (c == '.' || (c >= '0'&&c <= '9')) {
+                    if (c >= '0'&&c <= '9') {
+                        d = d * 10 + c - 48;
+                        c=str.charAt(count++);
+                    }
+                    else if (c == '.') {
+                        c=str.charAt(count++);
+                        while (c >= '0'&&c <= '9') {
+                            f = f * 10 + c - 48;
+                            z--;
+                            c=str.charAt(count++);
+                        }
+                        d = d + f * pow(10, z);
+                    }
 
-        return 0;
+                }
+                OPND.push(d);
+                d = 0;
+                f = 0;
+                z = 0;
+            }
+            else
+                switch (Precede(OPTR.peek(), c)) {
+                case '<':OPTR.push(c); c=str.charAt(count++); break;
+                case '=':x=OPTR.pop();c=str.charAt(count++); break;
+                case '>':x=OPTR.pop();a=OPND.pop();b=OPND.pop();OPND.push(Operate(a,x,b));OPTR.push(c);break;
+            }
+        }
+        double result=OPND.peek();
+        OPND.clear();
+        OPTR.clear();
+        return result;
     }
     public char Precede(char a, char b) {
         switch (a) {
