@@ -2,20 +2,19 @@ package com.example.uilayouttest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
 import android.text.method.ScrollingMovementMethod;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 import static java.lang.Math.pow;
 
-public class UILayoutTest extends AppCompatActivity {
-    TextView show,show1;
+public class UILayoutTest extends AppCompatActivity{
+    TextView show,show1,show2;
     Button bn;
     Stack<Double>  OPND = new Stack<Double>();
     Stack<Character> OPTR = new Stack<Character>();
@@ -26,13 +25,15 @@ public class UILayoutTest extends AppCompatActivity {
         setContentView(R.layout.activity_uilayout_test);
         show=(TextView)findViewById(R.id.text1);
         show1=(TextView)findViewById(R.id.text2);
+        show2=(TextView)findViewById(R.id.text3);
         show.setMovementMethod(ScrollingMovementMethod.getInstance());
         show1.setMovementMethod(ScrollingMovementMethod.getInstance());
         bn=(Button)findViewById(R.id.button1);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("%");
+                show2.setText("(");
+                show.append("(");
             }
         });
         bn=(Button)findViewById(R.id.button2);
@@ -41,6 +42,7 @@ public class UILayoutTest extends AppCompatActivity {
             public void onClick(View view) {
                 show.setText("");
                 show1.setText("");
+                show2.setText("");
                 //show.setText("点击ce");
             }
         });
@@ -48,13 +50,16 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.append("c");
+                show.setText("");
+                show1.setText("");
+                show2.setText("");
                 //show.setText("点击3");
             }
         });bn=(Button)findViewById(R.id.button4);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("");
                 String a=show.getText().toString();
                 a=a.substring(0,a.length()-1);
                 show.setText(a);
@@ -65,6 +70,7 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("/");
                 show.append("/");
                 //show.setText("/");
             }
@@ -72,12 +78,14 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("点击1");
+                show2.setText(")");
+                show.append(")");
             }
         });bn=(Button)findViewById(R.id.button7);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("7");
                 show.append("7");
                 ///show.setText("7");
             }
@@ -85,6 +93,7 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("8");
                 show.append("8");
                 //show.setText("8");
             }
@@ -92,6 +101,7 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("9");
                 show.append("9");
                 //show.setText("9");
             }
@@ -99,6 +109,7 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("*");
                 show.append("*");
                 //show.setText("*");
             }
@@ -106,12 +117,21 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("4");
+                String a=show.getText().toString();
+                a=a.substring(0,a.length()-1);
+                show.setText(a);
+                String a1=show2.getText().toString();
+
+                double b=Double.valueOf(a1);
+
+                String c=String.valueOf(pow(b,2));
+                show.append(c);
             }
         });bn=(Button)findViewById(R.id.button12);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("4");
                 show.append("4");
                 //show.setText("4");
             }
@@ -119,6 +139,7 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("5");
                 show.append("5");
                 //show.setText("5");
             }
@@ -126,6 +147,7 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("6");
                 show.append("6");
                 //show.setText("6");
             }
@@ -133,6 +155,7 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("-");
                 show.append("-");
                 //show.setText("-");
             }
@@ -140,18 +163,26 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("1");
+                String a=show.getText().toString();
+                a=a.substring(0,a.length()-1);
+                show.setText(a);
+                String a1=show2.getText().toString();
+                double b=Double.valueOf(a1);
+                String c=String.valueOf(pow(b,3));
+                show.append(c);
             }
         });bn=(Button)findViewById(R.id.button17);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("1");
                 show.append("1");
             }
         });bn=(Button)findViewById(R.id.button18);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("2");
                 show.append("2");
                 //show.setText("2");
             }
@@ -159,6 +190,7 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("3");
                 show.append("3");
                 //show.setText("3");
             }
@@ -166,6 +198,7 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("+");
                 show.append("+");
                 //show.setText("+");
             }
@@ -173,18 +206,31 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("ce");
+                String a=show.getText().toString();
+                a=a.substring(0,a.length()-1);
+                show.setText(a);
+                String a1=show2.getText().toString();
+                double b=compute("1/"+a1+"=");
+                java.text.DecimalFormat   df   =new   java.text.DecimalFormat("####0.00");
+
+                String c=String.valueOf(df.format(b));
+                show.append(c);
             }
         });bn=(Button)findViewById(R.id.button22);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setText("0");
+                String a=show.getText().toString();
+                a=a.substring(0,a.length()-1);
+                show.setText(a);
+                String a1=show2.getText().toString();
+                show.append("(0-"+a1+")");
             }
         });bn=(Button)findViewById(R.id.button23);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("0");
                 show.append("0");
                 //show.setText("0");
             }
@@ -192,6 +238,7 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText(".");
                 show.append(".");
                 //show.setText(".");
             }
@@ -199,6 +246,7 @@ public class UILayoutTest extends AppCompatActivity {
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                show2.setText("=");
 
                 show.append("=");
                 String a=show.getText().toString();

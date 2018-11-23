@@ -2,6 +2,7 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
+    android:onClick="showPopup"
     >
     <TableRow
         android:layout_width="match_parent"
@@ -22,13 +23,28 @@ android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
+            android:id="@+id/text3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="40dp"
+            android:scrollbars="vertical"
+            android:lines="1"
+            android:maxLength="18"
+            />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
             android:id="@+id/text1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="40dp"
             android:scrollbars="vertical"
-            android:lines="3"
+            android:lines="2"
             android:maxLength="18"
             />
 
@@ -36,16 +52,18 @@ android:layout_height="match_parent"
 
 
 
-    <TableRow>
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="%"
-        android:textSize="25dp"/>
 
-    <Button
+    <TableRow>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="("
+            android:textSize="25dp"/>
+
+        <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,7 +98,7 @@ android:layout_height="match_parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="√"
+        android:text=")"
         android:textSize="25dp"/>
     <Button
         android:id="@+id/button7"
