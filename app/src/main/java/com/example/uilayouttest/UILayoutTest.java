@@ -2,9 +2,6 @@ package com.example.uilayouttest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.PopupMenu;
-import android.text.method.ScrollingMovementMethod;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,8 +11,9 @@ import java.util.Stack;
 import static java.lang.Math.pow;
 
 public class UILayoutTest extends AppCompatActivity{
-    TextView show,show1,show2;
+    TextView show,show1,show2,show0,show11,show22;
     Button bn;
+
     Stack<Double>  OPND = new Stack<Double>();
     Stack<Character> OPTR = new Stack<Character>();
 
@@ -26,8 +24,9 @@ public class UILayoutTest extends AppCompatActivity{
         show=(TextView)findViewById(R.id.text1);
         show1=(TextView)findViewById(R.id.text2);
         show2=(TextView)findViewById(R.id.text3);
-        show.setMovementMethod(ScrollingMovementMethod.getInstance());
-        show1.setMovementMethod(ScrollingMovementMethod.getInstance());
+        show0=(TextView)findViewById(R.id.text11);
+        show11=(TextView)findViewById(R.id.text22);
+        show22=(TextView)findViewById(R.id.text33);
         bn=(Button)findViewById(R.id.button1);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +35,7 @@ public class UILayoutTest extends AppCompatActivity{
                 show.append("(");
             }
         });
+
         bn=(Button)findViewById(R.id.button2);
         bn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -258,7 +258,255 @@ public class UILayoutTest extends AppCompatActivity{
             }
         });
 
+        bn=(Button)findViewById(R.id.button00);
+        bn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                show2.setText("0");
+                show.append("0");
+            }
+        });
+
+        bn=(Button)findViewById(R.id.button11);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText("1");
+                show.append("1");
+            }
+        });
+        bn=(Button)findViewById(R.id.button22);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText("2");
+                show.append("2");
+            }
+        });
+        bn=(Button)findViewById(R.id.button33);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText("3");
+                show.append("3");
+            }
+        });
+        bn=(Button)findViewById(R.id.button44);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText("4");
+                show.append("4");
+            }
+        });
+        bn=(Button)findViewById(R.id.button55);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText("5");
+                show.append("5");
+            }
+        });
+        bn=(Button)findViewById(R.id.button66);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText("6");
+                show.append("6");
+            }
+        });
+        bn=(Button)findViewById(R.id.button77);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText("7");
+                show.append("7");
+            }
+        });
+        bn=(Button)findViewById(R.id.button88);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText("8");
+                show.append("8");
+            }
+        });
+        bn=(Button)findViewById(R.id.button99);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText("9");
+                show.append("9");
+            }
+        });
+        bn=(Button)findViewById(R.id.buttonsin);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String a=show.getText().toString();
+                a=a.substring(0,a.length()-1);
+                show.setText(a);
+                String a1=show2.getText().toString();
+                double b=Double.valueOf(a1);
+                java.text.DecimalFormat   df   =new   java.text.DecimalFormat("####0.00");
+
+                String c=String.valueOf(Math.sin(b));
+                show.append(c);
+            }
+        });
+        bn=(Button)findViewById(R.id.buttoncos);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String a=show.getText().toString();
+                a=a.substring(0,a.length()-1);
+                show.setText(a);
+                String a1=show2.getText().toString();
+                double b=Double.valueOf(a1);
+                java.text.DecimalFormat   df   =new   java.text.DecimalFormat("####0.00");
+
+                String c=String.valueOf(Math.cos(b));
+                show.append(c);
+            }
+        });
+        bn=(Button)findViewById(R.id.buttonch);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText("/");
+                show.append("/");
+            }
+        });
+        bn=(Button)findViewById(R.id.buttonK1);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText("(");
+                show.append("(");
+            }
+        });
+        bn=(Button)findViewById(R.id.buttonK2);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText(")");
+                show.append(")");
+            }
+        });
+        bn=(Button)findViewById(R.id.buttonx2);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String a=show.getText().toString();
+                a=a.substring(0,a.length()-1);
+                show.setText(a);
+                String a1=show2.getText().toString();
+                double b=Double.valueOf(a1);
+                String c=String.valueOf(pow(b,2));
+                show.append(c);
+            }
+        });
+        bn=(Button)findViewById(R.id.buttonx3);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String a=show.getText().toString();
+                a=a.substring(0,a.length()-1);
+                show.setText(a);
+                String a1=show2.getText().toString();
+                double b=Double.valueOf(a1);
+                String c=String.valueOf(pow(b,3));
+                show.append(c);
+            }
+        });
+        bn=(Button)findViewById(R.id.button1x);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String a=show.getText().toString();
+                a=a.substring(0,a.length()-1);
+                show.setText(a);
+                String a1=show2.getText().toString();
+                double b=compute("1/"+a1+"=");
+                java.text.DecimalFormat   df   =new   java.text.DecimalFormat("####0.00");
+
+                String c=String.valueOf(df.format(b));
+                show.append(c);
+            }
+        });
+        bn=(Button)findViewById(R.id.buttonP);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText(".");
+                show.append(".");
+            }
+        });
+        bn=(Button)findViewById(R.id.buttonce);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show.setText("");
+                show1.setText("");
+                show2.setText("");
+            }
+        });
+        bn=(Button)findViewById(R.id.buttondel);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText("");
+                String a=show.getText().toString();
+                a=a.substring(0,a.length()-1);
+                show.setText(a);
+            }
+        });
+        bn=(Button)findViewById(R.id.buttonS);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String a=show.getText().toString();
+                a=a.substring(0,a.length()-1);
+                show.setText(a);
+                String a1=show2.getText().toString();
+                show.append("(0-"+a1+")");
+            }
+        });
+        bn=(Button)findViewById(R.id.buttonG);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String a=show.getText().toString();
+                a=a.substring(0,a.length()-1);
+                show.setText(a);
+                String a1=show2.getText().toString();
+                double b=Double.valueOf(a1);
+                java.text.DecimalFormat   df   =new   java.text.DecimalFormat("####0.00");
+
+                String c=String.valueOf(Math.sqrt(b));
+                show.append(c);
+            }
+        });
+        bn=(Button)findViewById(R.id.buttonR);
+        bn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                show2.setText("=");
+
+                show.append("=");
+                String a=show.getText().toString();
+                double result=compute(a);
+                String s=String.valueOf(result);
+                show1.setText("");
+                show1.setText(show.getText()+s);
+                show.setText(s);
+            }
+        });
+
     }
+
+
+
     public double compute(String str){
         char x;
         double a, b, f = 0, z = 0, d = 0;
