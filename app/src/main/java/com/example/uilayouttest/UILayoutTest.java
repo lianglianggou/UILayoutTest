@@ -14,20 +14,16 @@ import static java.lang.Math.pow;
 public class UILayoutTest extends AppCompatActivity{
     TextView show,show1,show2,show0,show11,show22;
     Button bn;
-
     Stack<Double>  OPND = new Stack<Double>();
     Stack<Character> OPTR = new Stack<Character>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         if(this.getResources().getConfiguration().orientation== Configuration.ORIENTATION_PORTRAIT) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_uilayout_test);
             show = (TextView) findViewById(R.id.text1);
             show1 = (TextView) findViewById(R.id.text2);
             show2 = (TextView) findViewById(R.id.text3);
-
             bn = (Button) findViewById(R.id.button1);
             bn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -36,7 +32,6 @@ public class UILayoutTest extends AppCompatActivity{
                     show.append("(");
                 }
             });
-
             bn = (Button) findViewById(R.id.button2);
             bn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -44,7 +39,6 @@ public class UILayoutTest extends AppCompatActivity{
                     show.setText("");
                     show1.setText("");
                     show2.setText("");
-                    //show.setText("点击ce");
                 }
             });
             bn = (Button) findViewById(R.id.button3);
@@ -54,7 +48,6 @@ public class UILayoutTest extends AppCompatActivity{
                     show.setText("");
                     show1.setText("");
                     show2.setText("");
-                    //show.setText("点击3");
                 }
             });
             bn = (Button) findViewById(R.id.button4);
@@ -130,9 +123,7 @@ public class UILayoutTest extends AppCompatActivity{
                     a = a.substring(0, a.length() - 1);
                     show.setText(a);
                     String a1 = show2.getText().toString();
-
                     double b = Double.valueOf(a1);
-
                     String c = String.valueOf(pow(b, 2));
                     show.append(c);
                 }
@@ -557,7 +548,6 @@ public class UILayoutTest extends AppCompatActivity{
                 @Override
                 public void onClick(View view) {
                     show22.setText("=");
-
                     show0.append("=");
                     String a = show0.getText().toString();
                     double result = compute(a);
@@ -570,8 +560,6 @@ public class UILayoutTest extends AppCompatActivity{
         }
 
     }
-
-
 
     public double compute(String str){
         char x;
@@ -596,29 +584,25 @@ public class UILayoutTest extends AppCompatActivity{
                         }
                         d = d + f * pow(10, z);
                     }
-
                 }
                 OPND.push(d);
-
                 d = 0;
                 f = 0;
                 z = 0;
             }
             else
                 switch (Precede(OPTR.peek(), c)) {
-                case '<':OPTR.push(c); c=str.charAt(count++); break;
-                case '=':x=OPTR.pop();c=str.charAt(count++); break;
-                //case '>':x=OPTR.pop();QUEUE.add((double)x);break;
+                    case '<':OPTR.push(c); c=str.charAt(count++); break;
+                    case '=':x=OPTR.pop();c=str.charAt(count++); break;
                     case '>':x=OPTR.pop();a=OPND.pop();b=OPND.pop();OPND.push(Operate(b,x,a));break;
-            }
-
+                }
         }
-
         double result=OPND.peek();
         OPND.clear();
         OPTR.clear();
         return result;
     }
+
     public char Precede(char a, char b) {
         switch (a) {
             case '+':
@@ -656,6 +640,7 @@ public class UILayoutTest extends AppCompatActivity{
         }
         return 'o';
     }
+
     public double Operate(double a, char ch, double b) {
         switch (ch) {
             case '+':return a + b;

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UILayoutTest</string>
+    <string name="app_name">傻瓜计算器</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_another">anotherActivity</string>
 </resources>
